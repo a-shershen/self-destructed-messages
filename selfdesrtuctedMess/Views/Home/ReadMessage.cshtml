@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "ReadMessage";
+    Layout = "~/_MainLayoutPage.cshtml";
+
+    String message = ViewBag.Message;
+}
+
+@Html.Label("Текст сообщения:")
+
+<div id="resultLinkDiv">
+    <span id="resultMessage">
+        @Html.Label(message)
+    </span>
+</div>
+
+
+
+<br/>
+<br/>
+@Html.ActionLink("На главную", "Index", "Home")
+
+

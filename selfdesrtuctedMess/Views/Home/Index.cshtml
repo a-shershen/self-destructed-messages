@@ -1,0 +1,136 @@
+﻿@model  selfdestructedMess.Models.Message
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/_MainLayoutPage.cshtml";
+
+}
+
+@using (Html.BeginForm("WriteMessage", "Home", FormMethod.Post))
+{
+    <div style="width:100%;position:relative">
+        <div style="display:inline-block;">
+            @Html.LabelFor(m => m.Text, "Текст сообщения:")
+        </div>
+
+        <div style="display:inline-block;right:0; position:absolute;">
+            @{
+    string maxLength = System.Web.Configuration.WebConfigurationManager.AppSettings["maxLength"];
+            }
+
+            @Html.Label("Осталось символов:", new { id = "LengthLabel" })
+            @Html.Label(maxLength, new { id = "LengthCount" })
+
+        </div>
+    </div>
+
+
+    
+
+    @Html.TextAreaFor(m => m.Text,
+            new
+            {
+                @maxlength = maxLength,
+                onKeyUp = String.Format("UpdateLength({0})", maxLength),
+                onPaste = String.Format("UpdateLength({0})", maxLength),
+                @id = "Message"
+            })
+    @Html.ValidationMessageFor(m => m.Text, "Сообщение не может быть пустым!", new { id = "errorMessage" })
+    <br /><br />
+    
+    <div style="width:100%;">
+        <div style="display:inline-block;width:50%">
+            @Html.LabelFor(m => m.Minutes, "Срок хранения")
+
+            <br />
+
+            @{
+    List<SelectListItem> list = new List<SelectListItem>();
+
+
+    list.Add(new SelectListItem()
+    {
+        Text = "10 минут",
+        Value = 10.ToString()
+    });
+
+    list.Add(new SelectListItem()
+    {
+        Text = "30 минут",
+        Value = 30.ToString()
+    });
+
+    list.Add(new SelectListItem()
+    {
+        Text = "1 час",
+        Value = 60.ToString()
+    });
+
+    list.Add(new SelectListItem()
+    {
+        Text = "2 часа",
+        Value = 120.ToString()
+    });
+
+    list.Add(new SelectListItem()
+    {
+        Text = "6 часов",
+        Value = 360.ToString()
+    });
+
+    list.Add(new SelectListItem()
+    {
+        Text = "12 часов",
+        Value = 720.ToString(),
+        Selected = true
+    });
+
+    list.Add(new SelectListItem()
+    {
+        Text = "1 сутки",
+        Value = (60 * 24).ToString()
+    });
+
+    list.Add(new SelectListItem()
+    {
+        Text = "3 суток",
+        Value = (60 * 24 * 3).ToString()
+    });
+
+
+    @Html.DropDownListFor(m => m.Minutes, list)
+
+            }
+        </div>
+
+
+
+        <div style="display:inline-block;">
+
+            @{
+                @Html.LabelFor(m => m.TimesToShow, "Количество просмотров:")
+                <br/>
+
+            list = new List<SelectListItem>();
+
+            for (int i = 1; i <= 5; i++)
+            {
+            list.Add(new SelectListItem { Text = i.ToString(), Value = i.ToString() });
+            }
+
+            list.Add(new SelectListItem { Text = 10.ToString(), Value = 10.ToString() });
+            list.Add(new SelectListItem { Text = "Неограниченно", Value = null });
+
+            list[0].Selected = true;
+
+            @Html.DropDownListFor(m => m.TimesToShow, list)
+            }
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <input type="submit" value="Отправить" id="sendMessageButton" />
+}
+
+

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "SendMessage";
+    Layout = "~/_MainLayoutPage.cshtml";
+}
+
+@Html.Label("Ссылка на сообщение:")
+<br/><br/>
+
+
+<div id="resultLinkDiv">
+    <span id="resultLink"">
+        @ViewBag.Link
+    </span>
+</div>
+
+
+
+@*<input type="button" class="copyButtonStyle" id="copyButton" value="Копировать" onclick="CopyToClipboard()" />*@
+
+<br/><br/>
+
+@Html.ActionLink("Вернуться на главную", "Index", "Home")
+

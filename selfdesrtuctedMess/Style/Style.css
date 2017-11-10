@@ -1,0 +1,146 @@
+﻿html
+{
+    height:100%;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color:#e5e5e5;
+    margin: 0;
+    background-image: url(../Images/mainBackground.png);
+    height:100%;
+    min-height:600px;
+}
+
+#logoGray{
+    font-size: xx-large;
+    color: #303030;
+    display:inline-block;
+}
+
+#logoGreen{
+    font-size: xx-large;
+    color: #30FF30;
+    margin-left:-5px;
+    display:inline-block;
+}
+
+#logoMotto{
+    font-family: 'Anonymous Pro', monospace;
+    color: #909090;
+    padding-top:-20px;
+}
+
+#mainDiv{
+    width:600px;
+    margin:0 auto 0 auto;
+    padding:0 50px 0 50px;
+    background-color:#FFFFFF;
+    height:100%;
+    position:relative;
+}
+
+#Message{
+    font-family: 'Anonymous Pro', monospace;
+    color: #909090;
+    width:600px;
+    height:200px;
+    resize: vertical;
+    min-height:100px;
+    max-height:300px;
+}
+
+button[type=button]
+{
+    background-color:none;   
+}
+
+#sendMessageButton
+{
+    width:120px;
+    height:40px;
+    font-family:'Roboto Slab', serif;
+    font-size:inherit;
+    background:none;
+    background-color:#303030;
+    color:#FFFFFF;
+    border:1px solid #000000; 
+    transition: ease;
+    transition-duration: 0.5s;   
+}
+
+#sendMessageButton:hover
+{
+    background-color:#30FF30;
+    border:1px solid #30D030;  
+    transition: ease;
+    transition-duration: 0.1s;
+}
+
+#sendMessageButton:active
+{
+    background-color:#30B030;
+    border:1px solid #309030;    
+    transition: ease;
+    transition-duration: 0.1s;
+}
+
+.copyButtonStyle
+{
+    background-color: #FF3030;
+}
+
+.copied
+{
+    background-color: #30FF30;
+}
+
+#resultLinkDiv{
+    text-align:center;
+    border:2px solid #309030;
+    padding:25px;
+}
+
+#resultLink{
+    color:#009000;
+    font-family: 'Anonymous Pro', monospace;
+    text-decoration: underline;
+}
+
+#resultMessage{
+    color:#009000;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+#about
+{
+    color: #909090;
+    font-family: 'Anonymous Pro', monospace;
+    font-size: small;
+    height:20px;
+    position:absolute;
+    bottom:0;
+}
+
+#LengthLabel, #LengthCount{
+    color:#d0d0d0;
+    font-family: 'Anonymous Pro', monospace;
+}
+
+#LengthCount
+{
+    font-size:x-large;
+}
+
+#logoRef
+{
+    text-decoration:none;
+}
+
+.field-validation-error {
+    color:#900000;
+}
+ 
+.field-validation-valid {
+    display: none;
+}
